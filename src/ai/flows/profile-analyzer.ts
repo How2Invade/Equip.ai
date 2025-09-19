@@ -17,7 +17,7 @@ export type AnalyzeProfileInput = z.infer<typeof AnalyzeProfileInputSchema>;
 
 const AnalyzeProfileOutputSchema = z.object({
   skills: z.array(z.string()).describe('A list of extracted skills from the user profile.'),
-  experienceSummary: z.string().describe('A summary of the user\u2019s experience.'),
+  experienceSummary: z.string().describe('A concise, personalized summary of the user\u2019s experience.'),
 });
 export type AnalyzeProfileOutput = z.infer<typeof AnalyzeProfileOutputSchema>;
 
@@ -29,7 +29,12 @@ const prompt = ai.definePrompt({
   name: 'analyzeProfilePrompt',
   input: {schema: AnalyzeProfileInputSchema},
   output: {schema: AnalyzeProfileOutputSchema},
-  prompt: `You are an AI career advisor. Analyze the following user profile data and extract the user's skills and experience.\n\nProfile Data: {{{profileData}}}\n\nSkills: (List the skills here)\nExperience Summary: (Summarize the user's experience here)`,
+  prompt: `You are an AI career advisor. Analyze the following user profile data.
+Extract the user's key skills.
+Provide a concise, personalized summary of the user's experience in 2-3 sentences.
+
+Profile Data: {{{profileData}}}
+`,
 });
 
 const analyzeProfileFlow = ai.defineFlow(

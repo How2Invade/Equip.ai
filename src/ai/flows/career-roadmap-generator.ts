@@ -25,7 +25,7 @@ const CareerRoadmapOutputSchema = z.object({
   roadmap: z
     .string()
     .describe(
-      'A detailed career roadmap, outlining steps, skills to acquire, and potential roles to pursue to reach the desired job title.'
+      'A detailed career roadmap in Mermaid flowchart syntax.'
     ),
 });
 export type CareerRoadmapOutput = z.infer<typeof CareerRoadmapOutputSchema>;
@@ -40,12 +40,22 @@ const prompt = ai.definePrompt({
   name: 'careerRoadmapPrompt',
   input: {schema: CareerRoadmapInputSchema},
   output: {schema: CareerRoadmapOutputSchema},
-  prompt: `You are an expert career counselor. Generate a detailed career roadmap for a student, outlining the necessary steps, skills to acquire, and potential roles to pursue, to reach their desired job title.
+  prompt: `You are an expert career counselor. Generate a personalized, step-by-step career roadmap for a user to reach their desired job title, based on their skills.
 
-Skills: {{{skills}}}
+Output the roadmap in Mermaid flowchart syntax (graph TD). Each node should be a clear, actionable step. Keep the steps concise and easy to understand.
+
+Example:
+graph TD
+    A["Start Here: Foundational Skills"] --> B["Build Portfolio Projects"];
+    B --> C["Gain Intermediate Skills"];
+    C --> D["Network and Apply for Internships"];
+    D --> E["Achieve Goal: Junior Developer"];
+
+
+User Skills: {{{skills}}}
 Desired Job Title: {{{desiredJobTitle}}}
 
-Roadmap:`,
+Mermaid Flowchart:`,
 });
 
 const generateCareerRoadmapFlow = ai.defineFlow(

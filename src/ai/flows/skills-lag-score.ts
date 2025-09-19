@@ -23,7 +23,7 @@ const SkillsLagOutputSchema = z.object({
   skillGaps: z
     .string()
     .describe(
-      'An analysis of the user skills compared to the industry average for the desired career, with specific improvements suggested.'
+      'A concise, personalized analysis of the user skills compared to the industry average, with specific, actionable improvements suggested.'
     ),
 });
 export type SkillsLagOutput = z.infer<typeof SkillsLagOutputSchema>;
@@ -36,13 +36,13 @@ const prompt = ai.definePrompt({
   name: 'skillsLagPrompt',
   input: {schema: SkillsLagInputSchema},
   output: {schema: SkillsLagOutputSchema},
-  prompt: `You are a career advisor who analyzes a user's skills and compares them to the industry average for their desired career.
+  prompt: `You are a career advisor. Analyze a user's skills against their desired career.
+Provide a concise, personalized analysis.
+Identify the top 3-5 skill gaps and suggest specific, actionable improvements for each. Keep it brief and easy to understand.
 
-  User Skills: {{{userSkills}}}
-  Desired Career: {{{desiredCareer}}}
-
-  Provide an analysis of how the user's skills compare to the industry average for the desired career, with a breakdown by category and specific improvements suggested.
-  `,
+User Skills: {{{userSkills}}}
+Desired Career: {{{desiredCareer}}}
+`,
 });
 
 const analyzeSkillsLagFlow = ai.defineFlow(

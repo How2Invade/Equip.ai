@@ -28,7 +28,7 @@ const prompt = ai.definePrompt({
   name: 'aiCareerCounselorPrompt',
   input: {schema: AICareerCounselorInputSchema},
   output: {schema: AICareerCounselorOutputSchema},
-  prompt: `You are an AI career counselor. A student will ask you a question about career guidance, and you should provide a helpful and informative answer.
+  prompt: `You are an AI career counselor. A student will ask you a question about career guidance, and you should provide a helpful, concise, and personalized answer. Keep your response brief and easy to understand.
 
 Question: {{{question}}}`,
 });

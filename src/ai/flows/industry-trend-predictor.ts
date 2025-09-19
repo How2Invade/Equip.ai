@@ -32,23 +32,11 @@ const prompt = ai.definePrompt({
   name: 'industryTrendPrompt',
   input: {schema: PredictIndustryTrendsInputSchema},
   output: {schema: PredictIndustryTrendsOutputSchema},
-  prompt: `You are an expert in analyzing industry trends and predicting future skills requirements.
-
-  Based on your knowledge and the latest market data, provide a 2-year projection of emerging and declining competencies for the following field:
+  prompt: `You are an expert in analyzing industry trends. For the given field, provide a concise, 2-year projection of the top 3-5 emerging and declining competencies. The output should be easy to understand for a student.
 
   Field: {{{field}}}
 
-  Consider technological advancements, economic factors, and evolving business needs.
-
-  Format your response as a JSON object with two keys:
-  - emergingCompetencies: An array of strings representing emerging competencies.
-  - decliningCompetencies: An array of strings representing declining competencies.
-
-  Example:
-  {
-    "emergingCompetencies": ["AI", "Machine Learning", "Data Science"],
-    "decliningCompetencies": ["Legacy Systems", "Manual Data Entry", "Outdated Software"]
-  }
+  Provide only the most important trends.
   `,
 });
 
