@@ -7,3 +7,4 @@ import '@/ai/flows/profile-analyzer.ts';
 import '@/ai/flows/skills-lag-score.ts';
 import '@/ai/flows/ai-career-counselor.ts';
 import '@/ai/flows/industry-trend-predictor.ts';
+import '@/ai/flows/persona-generator.ts';

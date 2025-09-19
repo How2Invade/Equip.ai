@@ -5,6 +5,18 @@
       "description": "A placeholder avatar for a user.",
       "imageUrl": "https://picsum.photos/seed/user1/100/100",
       "imageHint": "portrait person"
+    },
+    {
+      "id": "persona-avatar-boy",
+      "description": "A placeholder avatar for a male persona.",
+      "imageUrl": "https://picsum.photos/seed/boy1/200/200",
+      "imageHint": "portrait boy"
+    },
+    {
+      "id": "persona-avatar-girl",
+      "description": "A placeholder avatar for a female persona.",
+      "imageUrl": "https://picsum.photos/seed/girl1/200/200",
+      "imageHint": "portrait girl"
     }
   ]
 }

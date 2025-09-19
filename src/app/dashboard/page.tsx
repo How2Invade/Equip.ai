@@ -10,6 +10,7 @@ import Link from "next/link"
 import { ArrowUpRight, BarChart, Bot, Map, User } from "lucide-react"
 import { TrendPredictor } from "@/components/dashboard/trends-predictor"
 import { SkillsLagScore } from "@/components/dashboard/skills-lag-score"
+import { PersonaGenerator } from "@/components/dashboard/persona-generator"
 
 export default function Dashboard() {
   return (
@@ -105,6 +106,19 @@ export default function Dashboard() {
           <CardContent>
             <SkillsLagScore />
           </CardContent>
+        </Card>
+      </div>
+      <div className="grid gap-4 md:grid-cols-1 lg:grid-cols-1">
+        <Card>
+            <CardHeader>
+              <CardTitle>Career Persona</CardTitle>
+              <CardDescription>
+                Generate a career persona to understand your strengths and weaknesses.
+              </CardDescription>
+            </CardHeader>
+            <CardContent>
+              <PersonaGenerator />
+            </CardContent>
         </Card>
       </div>
     </div>
