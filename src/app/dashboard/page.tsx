@@ -18,7 +18,7 @@ export default function Dashboard() {
       <div className="grid gap-4 sm:grid-cols-2 md:grid-cols-4 lg:grid-cols-2 xl:grid-cols-4">
         <Card>
           <CardHeader className="pb-2">
-            <CardTitle>Welcome Back!</CardTitle>
+            <CardTitle>Welcome to EQUIP.AI</CardTitle>
             <CardDescription>
               Here's your career snapshot. Ready to plan your next move?
             </CardDescription>
